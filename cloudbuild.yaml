@@ -1,0 +1,24 @@
+steps:
+- name: gcr.io/config-validator/terraform-validator
+  dir: terraform-google-crypto/
+  entrypoint: terraform
+  args:
+    - init
+- name: gcr.io/config-validator/terraform-validator
+  dir: terraform-google-crypto/
+  entrypoint: terraform
+  args:
+    - plan
+    - "-out=terraform.plan"
+- name: gcr.io/config-validator/terraform-validator
+  dir: terraform-google-crypto/
+  entrypoint: "/bin/bash"
+  args: ['-c', 'terraform show -json terraform.plan > terraform.json']
+- name: gcr.io/config-validator/terraform-validator
+  dir: terraform-google-crypto/
+  args:
+    - validate
+    - terraform.json
+    - --policy-path=../policy-library/
+    - --project
+    - tfvalidator-integration-demo
