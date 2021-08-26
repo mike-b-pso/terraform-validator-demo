@@ -1,5 +1,5 @@
 module "gcs_crypto" {
-  source            = "module"
+  source            = "modules/gcp-kms"
   project           = "tfvalidator-integration-demo"
 
   keyring_location  = "us-east4"
@@ -8,7 +8,7 @@ module "gcs_crypto" {
 }
 
 module "bigquery_crypto" {
-  source            = "module"
+  source            = "modules/gcp-kms"
   project           = "tfvalidator-integration-demo"
 
   keyring_location  = "us-east4"
