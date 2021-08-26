@@ -4,6 +4,8 @@ steps:
   entrypoint: terraform
   args:
     - init
+    - --tf-version
+    - "1.0.4"
 - name: gcr.io/config-validator/terraform-validator
   dir: terraform/
   entrypoint: terraform
