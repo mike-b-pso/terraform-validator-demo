@@ -1,15 +1,18 @@
 steps:
-- name: hashicorp/terraform
+- name: gcr.io/config-validator/terraform-validator
   dir: terraform/
+  entrypoint: terraform
   args:
     - init
-- name: hashicorp/terraform
+- name: gcr.io/config-validator/terraform-validator
   dir: terraform/
+  entrypoint: terraform
   args:
     - init
   id: terraform-init
-- name: hashicorp/terraform
+- name: gcr.io/config-validator/terraform-validator
   dir: terraform/
+  entrypoint: terraform
   args:
     - apply
     - -auto-approve
