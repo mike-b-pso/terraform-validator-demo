@@ -14,9 +14,9 @@ resource "google_bigquery_dataset" "dataset" {
   location                    = "US"
   default_table_expiration_ms = 3600000
 
-//  default_encryption_configuration {
-//    kms_key_name = module.bigquery_crypto.crypto_key_id
-//  }
+  default_encryption_configuration {
+    kms_key_name = module.bigquery_crypto.crypto_key_id
+  }
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
   # bq table attempting to utilise the crypto-key.
