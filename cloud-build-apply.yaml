@@ -1,9 +1,15 @@
 steps:
 - name: hashicorp/terraform
+  dir: terraform/
+  args:
+    - init
+- name: hashicorp/terraform
+  dir: terraform/
   args:
     - init
   id: terraform-init
 - name: hashicorp/terraform
+  dir: terraform/
   args:
     - apply
     - -auto-approve
