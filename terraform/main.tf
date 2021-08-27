@@ -3,8 +3,8 @@ module "gcs_crypto" {
   project           = "tfvalidator-integration-demo"
 
   keyring_location  = "us-east4"
-  keyring_name      = "gcs_keyring"
-  crypto_key_name   = "gcs_crypto_key"
+  keyring_name      = "gcs_keyring_2"
+  crypto_key_name   = "gcs_crypto_key_2"
 }
 
 module "bigquery_crypto" {
