@@ -56,11 +56,11 @@ spec:
         	"details": metadata,
         }] {
         	asset := input.asset
-        	asset.asset_type == "bigquery.googleapis.com/Table"
+        	asset.asset_type == "bigquery.googleapis.com/Dataset"
 
-        	# Find KMS key name for the table
-        	encryptionConfiguration := lib.get_default(asset.resource.data, "encryptionConfiguration", {})
-        	kmsKeyName := lib.get_default(encryptionConfiguration, "kmsKeyName", "NOTFOUND")
+        	# Find KMS key name for the dataset
+        	defaultEncryptionConfiguration := lib.get_default(asset.resource.data, "defaultEncryptionConfiguration", {})
+        	kmsKeyName := lib.get_default(defaultEncryptionConfiguration, "kmsKeyName", "NOTFOUND")
 
         	# Check if KMS is enabled
         	kmsKeyName == "NOTFOUND"
