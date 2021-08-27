@@ -11,7 +11,7 @@ data "google_storage_project_service_account" "gcs_account" {
 
   resource "google_storage_bucket" "bucket" {
   name = "kms-protected-bucket"
-  location = "asia-southeast1"
+  location = "us-east4"
 
   encryption {
     default_kms_key_name = module.gcs_crypto.crypto_key_id

@@ -11,7 +11,7 @@ resource "google_bigquery_dataset" "dataset" {
   dataset_id                  = "demo_dataset"
   friendly_name               = "test"
   description                 = "This is a demo dataset"
-  location                    = "US"
+  location                    = "us-east4"
   default_table_expiration_ms = 3600000
 
   default_encryption_configuration {
