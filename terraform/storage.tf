@@ -11,11 +11,11 @@ data "google_storage_project_service_account" "gcs_account" {
 
   resource "google_storage_bucket" "bucket" {
   name = "kms-protected-bucket"
-  location = "us-east4"
+  location = "us-east1"
 
-//  encryption {
-//    default_kms_key_name = module.gcs_crypto.crypto_key_id
-//  }
+  encryption {
+    default_kms_key_name = module.gcs_crypto.crypto_key_id
+  }
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
   # bucket attempting to utilise the crypto-key.
