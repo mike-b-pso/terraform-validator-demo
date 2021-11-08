@@ -1,3 +1,3 @@
 provider "google" {
-  project = "tfvalidator-integration-demo"
+  project = var.project_id
 }
