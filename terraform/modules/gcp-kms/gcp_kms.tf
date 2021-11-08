@@ -22,7 +22,7 @@ resource "google_kms_key_ring" "keyring" {
 
 resource "google_kms_crypto_key" "crypto_key" {
   name            = var.crypto_key_name
-  key_ring        = google_kms_key_ring.keyring.self_link
+  key_ring        = google_kms_key_ring.keyring.id
   rotation_period = var.key_rotation_period
   purpose         = var.purpose
 
