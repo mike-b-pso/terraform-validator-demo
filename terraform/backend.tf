@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "tf-validator-kms-demo"
+    bucket  = "tf-validator-demo"
     prefix  = "tf-demo"
   }
 }
