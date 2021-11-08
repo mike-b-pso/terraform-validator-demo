@@ -1,5 +1,5 @@
 output "keyring_name" {
-  value = google_kms_key_ring.keyring.self_link
+  value = google_kms_key_ring.keyring.id
 }
 
 output "keyring_id" {
