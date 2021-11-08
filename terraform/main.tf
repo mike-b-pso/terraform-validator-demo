@@ -1,6 +1,6 @@
 module "gcs_crypto" {
   source            = "./modules/gcp-kms"
-  project           = "tfvalidator-integration-demo"
+  project           = var.project_id
 
   keyring_location  = "us-east4"
   keyring_name      = "gcs_keyring_2"
@@ -9,7 +9,7 @@ module "gcs_crypto" {
 
 module "bigquery_crypto" {
   source            = "./modules/gcp-kms"
-  project           = "tfvalidator-integration-demo"
+  project           = var.project_id
 
   keyring_location  = "us-east4"
   keyring_name      = "bq_keyring"
