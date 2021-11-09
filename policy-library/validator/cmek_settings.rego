@@ -24,7 +24,7 @@ deny[{
 	constraint := input.constraint
 	lib.get_constraint_params(constraint, params)
 	asset := input.asset
-	asset.asset_type == "cloudkms.googleapis.com/CryptoKey"
+	asset.asset_type == "cloudkms.googleapis.com/CryptoKeyVersion"
 
 	invalid_key_settings(params, asset.resource.data)
 
