@@ -1,13 +1,13 @@
-data "google_bigquery_default_service_account" "bq_sa" {
-}
-
-module "bigquery_crypto" {
-  source            = "./modules/gcp-kms/crypto-key"
-
-  keyring_name      = "tfvalidator-demo-keyring"
-  key_name          = "bq_crypto_key"
-  kms_binding_members = ["serviceAccount:${data.google_bigquery_default_service_account.bq_sa.email}"]
-}
+//data "google_bigquery_default_service_account" "bq_sa" {
+//}
+//
+//module "bigquery_crypto" {
+//  source            = "./modules/gcp-kms/crypto-key"
+//
+//  keyring_name      = "tfvalidator-demo-keyring"
+//  key_name          = "bq_crypto_key"
+//  kms_binding_members = ["serviceAccount:${data.google_bigquery_default_service_account.bq_sa.email}"]
+//}
 
 //resource "google_bigquery_dataset" "dataset" {
 //  provider = var.project_id

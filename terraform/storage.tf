@@ -1,13 +1,13 @@
-data "google_storage_project_service_account" "gcs_account" {
-}
-
-module "gcs_crypto" {
-  source            = "./modules/gcp-kms/crypto-key"
-
-  keyring_name      = "tfvalidator-demo-keyring"
-  key_name          = "gcs_crypto_key"
-  kms_binding_members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"]
-}
+//data "google_storage_project_service_account" "gcs_account" {
+//}
+//
+//module "gcs_crypto" {
+//  source            = "./modules/gcp-kms/crypto-key"
+//
+//  keyring_name      = "tfvalidator-demo-keyring"
+//  key_name          = "gcs_crypto_key"
+//  kms_binding_members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"]
+//}
 
 //resource "google_storage_bucket" "bucket" {
 //  project = var.project_id
