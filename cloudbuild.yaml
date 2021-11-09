@@ -1,12 +1,12 @@
 steps:
-- name: 'hashicorp/terraform:0.13.7'
+- name: gcr.io/config-validator/terraform-validator
   dir: terraform/
-#  entrypoint: terraform
+  entrypoint: terraform
   args:
     - init
-- name: 'hashicorp/terraform:0.13.7'
+- name: gcr.io/config-validator/terraform-validator
   dir: terraform/
-#  entrypoint: terraform
+  entrypoint: terraform
   args:
     - plan
     - "-out=terraform.plan"

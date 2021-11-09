@@ -1,7 +1,7 @@
 module "project_keyring" {
   source = "./modules/gcp-kms/keyring"
 
-  keyring_name = "tfvalidator-demo-keyring"
+  keyring_name = "tfvalidator-demo-keyring-2"
   project = var.project_id
   keyring_location = "us"
 }
