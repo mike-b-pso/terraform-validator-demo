@@ -30,5 +30,5 @@ resource "google_storage_bucket" "bucket" {
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
   # bucket attempting to utilise the crypto-key.
-  depends_on = [module.gcs_crypto]
+//  depends_on = [module.gcs_crypto]
 }

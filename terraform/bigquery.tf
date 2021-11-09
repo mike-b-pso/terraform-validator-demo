@@ -22,6 +22,6 @@ resource "google_bigquery_dataset" "dataset" {
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
   # bq table attempting to utilise the crypto-key.
-  depends_on = [module.bigquery_crypto]
+//  depends_on = [module.bigquery_crypto]
 }
 
