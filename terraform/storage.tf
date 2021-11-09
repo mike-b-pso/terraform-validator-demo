@@ -5,7 +5,7 @@ module "gcs_crypto" {
   source            = "./modules/gcp-kms/crypto-key"
 
   keyring_name      = "tfvalidator-demo-keyring"
-  crypto_key_name   = "gcs_crypto_key"
+  key_name   = "gcs_crypto_key"
   kms_binding_members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email}"]
 }
 

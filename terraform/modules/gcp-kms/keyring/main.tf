@@ -15,17 +15,8 @@
  */
 
 
-locals {
-  region_short_code = {
-    "us-central1" = "usc1"
-    "us-east4"    = "use4"
-  }
-
-  default_name = "${var.project}-${local.region_short_code[var.keyring_location]}"
-}
-
 resource "google_kms_key_ring" "keyring" {
-  name = var.keyring_name == null ? local.default_name : var.keyring_name
+  name = var.keyring_name
   project = var.project
   location = var.keyring_location
 }

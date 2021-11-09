@@ -5,7 +5,7 @@ module "bigquery_crypto" {
   source            = "./modules/gcp-kms/crypto-key"
 
   keyring_name      = "tfvalidator-demo-keyring"
-  crypto_key_name   = "bq_crypto_key"
+  key_name   = "bq_crypto_key"
   kms_binding_members = ["serviceAccount:${data.google_bigquery_default_service_account.bq_sa.email}"]
 }
 

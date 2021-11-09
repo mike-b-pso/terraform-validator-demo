@@ -1,21 +1,10 @@
-output "gcs_keyring_name" {
-  value = module.gcs_crypto.keyring_name
-}
 
-output "gcs_keyring_id" {
-  value = module.gcs_crypto.keyring_id
+output "project_keyring_id" {
+  value = module.project_keyring.keyring_id
 }
 
 output "gcs_crypto_key_id" {
   value = module.gcs_crypto.crypto_key_id
-}
-
-output "bq_keyring_name" {
-  value = module.bigquery_crypto.keyring_name
-}
-
-output "bq_keyring_id" {
-  value = module.bigquery_crypto.keyring_id
 }
 
 output "bq_crypto_key_id" {
