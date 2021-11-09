@@ -38,7 +38,7 @@ check_protection_level(params, key) = result {
 }
 
 check_protection_level(params, key) = result {
-	result = params.protection_level == key.versionTemplate.protectionLevel
+	result = params.protection_level == key.primary.protectionLevel
 }
 
 check_algorithm(params, key) = result {
@@ -47,7 +47,7 @@ check_algorithm(params, key) = result {
 }
 
 check_algorithm(params, key) = result {
-	result = params.algorithm == key.versionTemplate.algorithm
+	result = params.algorithm == key.primary.algorithm
 }
 
 check_purpose(params, key) = result {
