@@ -16,7 +16,7 @@ resource "google_kms_crypto_key" "crypto_key" {
 
   version_template {
     algorithm        = "GOOGLE_SYMMETRIC_ENCRYPTION"
-    protection_level = "HSM"
+    protection_level = "SOFTWARE"
   }
   //  lifecycle {
   //    prevent_destroy = true
