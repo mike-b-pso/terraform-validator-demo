@@ -3,8 +3,8 @@ resource "google_kms_crypto_key" "crypto_key" {
   key_ring = var.keyring_name
   purpose  = "ENCRYPT_DECRYPT"
 
-  # 100 day rotation period
-  rotation_period = "8640000s"
+  # 90 day rotation period
+  rotation_period = "7776000s"
 
   version_template {
     algorithm        = "GOOGLE_SYMMETRIC_ENCRYPTION"
