@@ -9,12 +9,12 @@ steps:
   entrypoint: terraform
   args:
     - plan
-    - "-out=terraform.plan"
+    - "-out=terraform.tfplan"
 - name: gcr.io/config-validator/terraform-validator
   dir: terraform/
   args:
     - convert
-    - terraform.plan
+    - "terraform.tfplan"
     - --project
     - mlops-scrath-abed31
     - >
