@@ -14,8 +14,12 @@ data "google_kms_crypto_key" "my_crypto_key" {
   key_ring = module.project_keyring.keyring_id
 }
 
-resource "google_kms_secret_ciphertext" "my_password" {
+data "google_kms_crypto_key_version" "my_crypto_key_version" {
   crypto_key = data.google_kms_crypto_key.my_crypto_key.id
+}
+
+resource "google_kms_secret_ciphertext" "my_password" {
+  crypto_key = data.google_kms_crypto_key_version.my_crypto_key_version.id
   plaintext  = "my-secret-password"
 }
 
