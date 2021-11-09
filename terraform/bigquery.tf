@@ -10,7 +10,6 @@ module "bigquery_crypto" {
 }
 
 resource "google_bigquery_dataset" "dataset" {
-  provider = var.project_id
   dataset_id                  = "demo_dataset"
   friendly_name               = "test"
   description                 = "This is a demo dataset"
