@@ -6,7 +6,7 @@ module "gcs_crypto" {
 
   keyring_name      = "tfvalidator-demo-keyring"
   key_name   = "gcs_crypto_key"
-  kms_binding_members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email}"]
+  kms_binding_members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"]
 }
 
 resource "google_storage_bucket" "bucket" {
