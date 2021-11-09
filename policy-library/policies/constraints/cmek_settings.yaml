@@ -23,7 +23,7 @@ spec:
   severity: high
   match:
     target: # {"$ref":"#/definitions/io.k8s.cli.setters.target"}
-      - "projects/**"
+      - "organizations/**"
   parameters:
     # Optionaly specify the required key rotation period.
     # Valid time units are  "ns", "us", "ms", "s", "m", "h"

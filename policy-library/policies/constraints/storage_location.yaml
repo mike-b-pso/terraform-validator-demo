@@ -19,7 +19,7 @@ metadata:
 spec:
   severity: high
   match:
-    target: ["projects/**"]
+    target: ["organization/**"]
   parameters:
     mode: "allowlist"
     locations:
