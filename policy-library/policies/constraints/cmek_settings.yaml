@@ -29,6 +29,6 @@ spec:
     # Valid time units are  "ns", "us", "ms", "s", "m", "h"
     # This is 100 days
     rotation_period: 2400h
-    algorithm: GOOGLE_SYMMETRIC_ENCRYPTION
-    purpose: ENCRYPT_DECRYPT
+    algorithm: RSA_SIGN_PSS_2048_SHA256
+    purpose: ASYMMETRIC_SIGN
     protection_level: HSM
