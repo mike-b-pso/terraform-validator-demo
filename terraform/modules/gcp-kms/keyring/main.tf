@@ -14,25 +14,18 @@
  * limitations under the License.
  */
 
+
+locals {
+  region_short_code = {
+    "us-central1" = "usc1"
+    "us-east4"    = "use4"
+  }
+
+  default_name = "${var.project}-${local.region_short_code[var.keyring_location]}"
+}
+
 resource "google_kms_key_ring" "keyring" {
-  name = var.keyring_name
+  name = var.keyring_name == null ? local.default_name : var.keyring_name
   project = var.project
   location = var.keyring_location
 }
-
-resource "google_kms_crypto_key" "crypto_key" {
-  name            = var.crypto_key_name
-  key_ring        = google_kms_key_ring.keyring.id
-  rotation_period = var.key_rotation_period
-  purpose         = var.purpose
-
-  version_template {
-    algorithm = var.algorithm
-    protection_level = var.protection_level
-  }
-  lifecycle {
-    prevent_destroy = true
-  }
-}
-
-

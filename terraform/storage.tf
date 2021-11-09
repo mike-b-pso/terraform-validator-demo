@@ -1,15 +1,15 @@
 data "google_storage_project_service_account" "gcs_account" {
 }
 
-  resource "google_kms_crypto_key_iam_binding" "binding" {
-  crypto_key_id = module.gcs_crypto.crypto_key_id
-  role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
+module "gcs_crypto" {
+  source            = "./modules/gcp-kms/crypto-key"
 
-  members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"]
+  keyring_name      = "tfvalidator-demo-keyring"
+  crypto_key_name   = "gcs_crypto_key"
+  kms_binding_members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email}"]
 }
 
-
-  resource "google_storage_bucket" "bucket" {
+resource "google_storage_bucket" "bucket" {
   name = "kms-protected-bucket"
   location = "us-east1"
 
@@ -19,5 +19,5 @@ data "google_storage_project_service_account" "gcs_account" {
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
   # bucket attempting to utilise the crypto-key.
-  depends_on = [google_kms_crypto_key_iam_binding.binding]
+  depends_on = [module.gcs_crypto]
 }
