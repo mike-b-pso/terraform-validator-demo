@@ -4,7 +4,7 @@ resource "google_kms_crypto_key" "crypto_key" {
   purpose  = "ENCRYPT_DECRYPT"
 
   # 100 day rotation period
-  rotation_period = "2400h"
+  rotation_period = "8640000s"
 
   version_template {
     algorithm        = "GOOGLE_SYMMETRIC_ENCRYPTION"
