@@ -16,7 +16,8 @@ steps:
     - convert terraform.tfplan
     - --project
     - mlops-scrath-abed31
-    - > terraform.json
+    - >
+    - terraform.json
 - name: gcr.io/config-validator/terraform-validator
   dir: terraform/
   args:
