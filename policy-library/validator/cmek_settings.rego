@@ -24,7 +24,7 @@ deny[{
 	constraint := input.constraint
 	lib.get_constraint_params(constraint, params)
 	asset := input.asset
-	asset.asset_type == "cloudkms.googleapis.com/CryptoKeyVersion"
+	asset.asset_type == "cloudkms.googleapis.com/CryptoKey"
 
 	invalid_key_settings(params, asset.resource.data)
 
@@ -38,7 +38,7 @@ check_protection_level(params, key) = result {
 }
 
 check_protection_level(params, key) = result {
-	result = params.protection_level == key.primary.protectionLevel
+	result = params.protection_level == key.versionTemplate.protectionLevel
 }
 
 check_algorithm(params, key) = result {
@@ -47,7 +47,7 @@ check_algorithm(params, key) = result {
 }
 
 check_algorithm(params, key) = result {
-	result = params.algorithm == key.primary.algorithm
+	result = params.algorithm == key.versionTemplate.algorithm
 }
 
 check_purpose(params, key) = result {
