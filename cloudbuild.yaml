@@ -20,3 +20,5 @@ steps:
     - validate
     - terraform.json
     - --policy-path=../policy-library/
+    - --project
+    - mlops-scrath-abed31
