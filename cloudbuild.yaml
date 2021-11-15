@@ -13,7 +13,8 @@ steps:
 - name: gcr.io/config-validator/terraform-validator
   dir: terraform/
   args:
-    - convert terraform.tfplan
+    - convert
+    - terraform.tfplan
     - --project
     - mlops-scrath-abed31
     - >
