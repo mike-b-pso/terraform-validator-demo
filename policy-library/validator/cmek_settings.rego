@@ -70,7 +70,7 @@ check_rotation_period(params, key) = result {
 	period_string := lib.get_default(params, "rotation_period", "31536000s")
 	period_to_test := time.parse_duration_ns(period_string)
 
-	result = rotation_period == period_to_test
+	result = rotation_period <= period_to_test
 }
 
 invalid_key_settings(params, key) {
