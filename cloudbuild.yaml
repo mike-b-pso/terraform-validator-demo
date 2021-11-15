@@ -9,16 +9,11 @@ steps:
   entrypoint: terraform
   args:
     - plan
-    - "-out=terraform.tfplan"
+    - "-out=terraform.plan"
 - name: gcr.io/config-validator/terraform-validator
   dir: terraform/
-  args:
-    - convert
-    - terraform.tfplan
-    - --project
-    - mlops-scrath-abed31
-    - >
-    - terraform.json
+  entrypoint: "/bin/bash"
+  args: ['-c', 'terraform show -json terraform.plan > terraform.json']
 - name: gcr.io/config-validator/terraform-validator
   dir: terraform/
   args:
