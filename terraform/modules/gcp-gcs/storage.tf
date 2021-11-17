@@ -7,7 +7,7 @@ resource "google_storage_bucket" "bucket" {
   location = var.bucket_location
 
   encryption {
-    default_kms_key_name = google_kms_crypto_key.crypto_key.id
+    default_kms_key_name = google_kms_crypto_key.crypto_key.self_link
   }
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
