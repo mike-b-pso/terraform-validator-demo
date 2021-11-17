@@ -6,6 +6,16 @@ module "project_keyring" {
   keyring_location = "us"
 }
 
+module "gcs_bucket" {
+  source = "./modules/gcp-gcs"
+
+  project_id = var.project_id
+  keyring_name = module.project_keyring.keyring_id
+  key_name = "gcs_crypto_key"
+  bucket_name = "kms-protected-bucket"
+  bucket_location = "us-east4"
+}
+
 //resource "google_kms_crypto_key" "crypto_key" {
 //  name     = "tfv-test-key-2"
 //  key_ring = module.project_keyring.keyring_id
