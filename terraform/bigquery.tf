@@ -1,10 +1,6 @@
 data "google_bigquery_default_service_account" "bq_sa" {
 }
 
-locals {
-  bigquery_crypto = module.bigquery_crypto.crypto_key_id
-}
-
 module "bigquery_crypto" {
   source            = "./modules/gcp-kms/crypto-key"
 
@@ -21,7 +17,7 @@ resource "google_bigquery_dataset" "dataset" {
   default_table_expiration_ms = 3600000
 
   default_encryption_configuration {
-    kms_key_name = local.bigquery_crypto
+    kms_key_name = module.bigquery_crypto.bq_crypto_key_id
   }
 
   # Ensure the KMS crypto-key IAM binding for the service account exists prior to the
