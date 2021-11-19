@@ -21,4 +21,4 @@ steps:
     - terraform.json
     - --policy-path=../policy-library/
     - --project
-    - tfvalidator-integration-demo
+    - mlops-scrath-abed31

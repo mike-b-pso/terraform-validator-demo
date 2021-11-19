@@ -14,25 +14,9 @@
  * limitations under the License.
  */
 
+
 resource "google_kms_key_ring" "keyring" {
   name = var.keyring_name
   project = var.project
   location = var.keyring_location
 }
-
-resource "google_kms_crypto_key" "crypto_key" {
-  name            = var.crypto_key_name
-  key_ring        = google_kms_key_ring.keyring.self_link
-  rotation_period = var.key_rotation_period
-  purpose         = var.purpose
-
-  version_template {
-    algorithm = var.algorithm
-    protection_level = var.protection_level
-  }
-  lifecycle {
-    prevent_destroy = true
-  }
-}
-
-

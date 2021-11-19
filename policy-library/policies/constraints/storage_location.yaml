@@ -19,10 +19,10 @@ metadata:
 spec:
   severity: high
   match:
-    target: ["organization/*"]
+    target: ["organization/**"]
   parameters:
     mode: "allowlist"
     locations:
-      - "europe-west2"
-      - "europe-north1"
+      - "us-west2"
+      - "us-east1"
     exemptions: []

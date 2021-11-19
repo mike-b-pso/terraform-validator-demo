@@ -1,3 +1,3 @@
 provider "google" {
-  project = "tfvalidator-integration-demo"
+  project = "mlops-scrath-abed31"
 }
